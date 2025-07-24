@@ -3,7 +3,7 @@ package ru.mts.media.platform.umc.domain.venue;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import ru.mts.media.platform.umc.domain.gql.types.FullExternalId;
+import ru.mts.media.platform.umc.domain.gql.types.FullExternalIdInput;
 import ru.mts.media.platform.umc.domain.gql.types.SaveVenueInput;
 import ru.mts.media.platform.umc.domain.gql.types.Venue;
 
@@ -16,7 +16,7 @@ public class VenueDomainService {
     private final VenueSot sot;
     private final VenueDomainServiceMapper mapper;
 
-    public VenueSave save(FullExternalId id, SaveVenueInput input) {
+    public VenueSave save(FullExternalIdInput id, SaveVenueInput input) {
         var evt = sot.getVenueById(id)
                 .map(applyPatch(input))
                 .map(VenueSave::new)

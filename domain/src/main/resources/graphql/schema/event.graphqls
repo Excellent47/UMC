@@ -1,0 +1,23 @@
+input SaveEventInput {
+    name: String!
+    startTime: String!
+    endTime: String!
+    venueReferenceIds: [ID!]!
+}
+
+type Event {
+    id: ID!
+    name: String!
+    startTime: String!
+    endTime: String!
+    venues: [Venue!]!
+}
+
+type EventSlice {
+    content: [Event!]!
+    hasNext: Boolean!
+    hasPrevious: Boolean!
+    number: Int!
+    size: Int!
+}
+

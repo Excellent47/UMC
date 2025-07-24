@@ -1,6 +1,3 @@
-# scalar UmcCanonicalId
-# scalar UmcReferenceId
-
 type Query {
 }
 

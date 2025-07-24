@@ -9,6 +9,15 @@ wrapper {
     gradleVersion = '8.5'
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+}
+
 // Top-level build configuration
 subprojects {
 
@@ -34,7 +43,7 @@ subprojects {
         annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
         // If using Lombok's @Builder or @Slf4j with MapStruct
-        compileOnly "org.mapstruct:mapstruct:${mapstructVersion}"
+        implementation "org.mapstruct:mapstruct:${mapstructVersion}"
         annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
         annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
 

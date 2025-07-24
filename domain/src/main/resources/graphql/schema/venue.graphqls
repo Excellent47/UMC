@@ -1,9 +1,31 @@
+input FullExternalIdInput {
+    providerId: ID!
+    brandId: ID!
+    externalId: ID!
+}
+
+type FullExternalId {
+    providerId: ID!
+    brandId: ID!
+    externalId: ID!
+}
+
 type Venue {
     id: ID!
     externalId: FullExternalId!
     name: String!
+    events: [Event!]
+}
+
+type VenueSlice {
+    content: [Venue!]!
+    hasNext: Boolean!
+    hasPrevious: Boolean!
+    number: Int!
+    size: Int!
 }
 
 input SaveVenueInput {
     name: String!
 }
+

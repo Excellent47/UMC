@@ -1,0 +1,3 @@
+extend type Query {
+    events(page: Int!, size: Int!): EventSlice!
+} 

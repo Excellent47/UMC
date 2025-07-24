@@ -2,7 +2,12 @@ package ru.mts.media.platform.umc.dao.postgres.venue;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import ru.mts.media.platform.umc.dao.postgres.common.FullExternalIdPk;
+import ru.mts.media.platform.umc.dao.postgres.event.EventPgEntity;
+
+import java.util.Set;
 
 @Entity
 @Data
@@ -26,4 +31,10 @@ public class VenuePgEntity {
     private String referenceId;
 
     private String name;
+
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "venues", fetch = FetchType.LAZY)
+    @OrderBy("startTime DESC")
+    private Set<EventPgEntity> events;
 }
